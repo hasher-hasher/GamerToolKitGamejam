@@ -15,7 +15,7 @@ public class Manager : Singleton<Manager>
     private void Update() {
         timer += Time.deltaTime;
 
-        if (timer >= 15f) {
+        if (timer >= 8f) {
             difficulty++;
             timer = 0;
         }

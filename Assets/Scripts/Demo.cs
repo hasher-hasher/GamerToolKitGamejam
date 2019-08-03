@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // [RequireComponent(typeof(Rigidbody2D))]
 // [RequireComponent(typeof(CircleCollider2D))]
@@ -73,6 +74,11 @@ public class Demo : MonoBehaviour
         if (other.gameObject.tag == "Floor") {
             this.isJumping = false;
             print("-> " + isJumping);
+        }
+
+        if (other.gameObject.tag == "Enemy") {
+            print("Morreu otario");
+            SceneManager.LoadScene("TEst", LoadSceneMode.Single);
         }
     }
 

@@ -15,9 +15,10 @@ public class SpawnManager : MonoBehaviour
 
         if (timer > spawnRate) {
             // Spawn
-            var item = enemies[(int)Random.Range(0, enemies.Count)];
+            var item = enemies[Random.Range(0, enemies.Count)];
             Instantiate(item.enemyObject, item.targetToSpawn.position, Quaternion.identity);
             timer = 0;
+            // spawnRate -= Manager.Instance.difficulty * 0.01f;
         }
     }
 }
