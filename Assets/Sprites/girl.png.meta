@@ -9,6 +9,9 @@ TextureImporter:
       213: 8244377793169767864
     second: idle_blink
   - first:
+      213: 8892762350033652797
+    second: jump
+  - first:
       213: 7439426567979852956
     second: run_1
   - first:
@@ -148,8 +151,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: ce03ec9be19ff6948ae6f309e7f1192a
       internalID: 9101278813714116849
+=======
+      spriteID: 678db3ffdca7ab148ac0d6af82082c41
+      internalID: -757215924695959776
+>>>>>>> 290808f59eeda1b432d38681c25a21e321da54a1
       vertices: []
       indices: 
       edges: []
@@ -169,14 +177,44 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 3312722d2a5642e4a8f27fb6353f0455
       internalID: -5439765026384770559
+=======
+      spriteID: cd85053704e319b40bbc51f6439a250d
+      internalID: 8244377793169767864
+>>>>>>> 290808f59eeda1b432d38681c25a21e321da54a1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
+<<<<<<< HEAD
       name: girl_2
+=======
+      name: jump
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 512
+        width: 104
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47881acd84656d448bdb56b6e16d138f
+      internalID: 8892762350033652797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_1
+>>>>>>> 290808f59eeda1b432d38681c25a21e321da54a1
       rect:
         serializedVersion: 2
         x: 56
@@ -190,8 +228,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 50b89d8c8fa09f8429d9bd7d557accfd
       internalID: 7094056765176595939
+=======
+      spriteID: d929fe5feed6cc74092e25d0aad2b890
+      internalID: 7439426567979852956
+>>>>>>> 290808f59eeda1b432d38681c25a21e321da54a1
       vertices: []
       indices: 
       edges: []
@@ -211,8 +254,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 50780abff0a713f4994a8fb96fc7566d
       internalID: -5859545116844290178
+=======
+      spriteID: 97fea5bb91f95654290d74362f1c5566
+      internalID: -2673560216460186399
+>>>>>>> 290808f59eeda1b432d38681c25a21e321da54a1
       vertices: []
       indices: 
       edges: []
@@ -221,8 +269,8 @@ TextureImporter:
       name: girl_4
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
+        x: 560
+        y: 256
         width: 132
         height: 220
       alignment: 0
@@ -232,8 +280,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 53002a7104415fc4caed3ab57fcb2811
       internalID: -8195894768214112226
+=======
+      spriteID: e10e08ca5d1895a41b1fdac6f4c3b0f2
+      internalID: -5822559823783948592
+>>>>>>> 290808f59eeda1b432d38681c25a21e321da54a1
       vertices: []
       indices: 
       edges: []
@@ -242,7 +295,7 @@ TextureImporter:
       name: girl_5
       rect:
         serializedVersion: 2
-        x: 296
+        x: 40
         y: 0
         width: 140
         height: 216
@@ -253,8 +306,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
+<<<<<<< HEAD
       spriteID: 7acc2a412133f014f891bb726de24f18
       internalID: -5537787781625429618
+=======
+      spriteID: 180c7959b20aece4db508ae5185398e7
+      internalID: -4997308686002322044
+>>>>>>> 290808f59eeda1b432d38681c25a21e321da54a1
       vertices: []
       indices: 
       edges: []
