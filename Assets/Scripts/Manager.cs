@@ -6,7 +6,18 @@ public class Manager : Singleton<Manager>
 {
     public int difficulty;
 
+    private float timer;
+
     private void Start() {
         difficulty = 1;
+    }
+
+    private void Update() {
+        timer += Time.deltaTime;
+
+        if (timer >= 15f) {
+            difficulty++;
+            timer = 0;
+        }
     }
 }
