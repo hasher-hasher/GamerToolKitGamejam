@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 579366640}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,6 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd15e980888a9e4e92dc994320f4ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  higherJumpTime: 0.15
+  jumpForce: 10000
   moveForce: 0.06
 --- !u!61 &1984032860
 BoxCollider2D:

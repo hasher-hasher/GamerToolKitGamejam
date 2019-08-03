@@ -11,6 +11,8 @@ public class Demo : MonoBehaviour
     
     [SerializeField]
     float higherJumpTime;
+    [SerializeField]
+    float jumpForce;
 
     [SerializeField]
     private float moveForce;
@@ -23,6 +25,8 @@ public class Demo : MonoBehaviour
     private bool jumpCoroutineRunning;
 
     private float lastTimePressed;
+
+    private bool isJumping;
 
     // Start is called before the first frame update
     void Start()
@@ -49,10 +53,26 @@ public class Demo : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             // Start time handler coroutine
-            if (Time.time - lastTimePressed < higherJumpTime) {
-                print("tei");
+            if (Time.time - lastTimePressed < higherJumpTime && !this.isJumping) {
+                rb.AddForce(Vector2.up * Time.deltaTime * jumpForce); // Jump
             }
             lastTimePressed = Time.time;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag == "Floor") {
+            this.isJumping = false;
+            print("-> " + isJumping);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Floor")
+        {
+            this.isJumping = true;
+            print("-> " + isJumping);
         }
     }
 }
