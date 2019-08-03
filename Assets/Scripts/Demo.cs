@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(BoxCollider2D))]
+// [RequireComponent(typeof(Rigidbody2D))]
+// [RequireComponent(typeof(CircleCollider2D))]
 public class Demo : MonoBehaviour
 {
     Rigidbody2D rb;
