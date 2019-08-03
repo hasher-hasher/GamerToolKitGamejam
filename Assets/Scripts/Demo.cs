@@ -7,6 +7,7 @@ using UnityEngine;
 public class Demo : MonoBehaviour
 {
     Rigidbody2D rb;
+    Animator anim;
 
     
     [SerializeField]
@@ -32,6 +33,7 @@ public class Demo : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         jumpCoroutineRunning = false;
         lastTimePressed = 0;
     }
@@ -42,6 +44,12 @@ public class Demo : MonoBehaviour
         {
             // Run
             rb.velocity = new Vector2(moveForce, rb.velocity.y);
+            if (!isJumping) {
+                anim.SetTrigger("Run");
+            }
+        } else if (!isJumping)
+        {
+            anim.SetTrigger("Idle");
         }
     }
 
@@ -54,7 +62,8 @@ public class Demo : MonoBehaviour
         {
             // Start time handler coroutine
             if (Time.time - lastTimePressed < higherJumpTime && !this.isJumping) {
-                rb.velocity = Vector2.up * jumpForce;
+                rb.velocity = Vector2.up * jumpForce; // Jump
+                anim.SetTrigger("Jump");
             }
             lastTimePressed = Time.time;
         }
