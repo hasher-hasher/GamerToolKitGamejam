@@ -36,25 +36,25 @@ public class Demo : MonoBehaviour
         lastTimePressed = 0;
     }
 
+    private void FixedUpdate() {
+        // Updating any pressed button if in game
+        if (Input.GetKey(KeyCode.Keypad1))
+        {
+            // Run
+            rb.velocity = new Vector2(moveForce, rb.velocity.y);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        // Update where to player move position
-        moveTarget = new Vector2(transform.position.x + 1f, transform.position.y);
-
-        // Updating any pressed button if in game
-        if (Input.GetKey(KeyCode.Keypad1)) {
-            // Run
-            transform.position = Vector2.MoveTowards(transform.position, moveTarget, moveForce);
-        }
-
         // Check if the player started to press the button with
         // the intention to jump
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             // Start time handler coroutine
             if (Time.time - lastTimePressed < higherJumpTime && !this.isJumping) {
-                rb.AddForce(Vector2.up * Time.deltaTime * jumpForce); // Jump
+                rb.velocity = Vector2.up * jumpForce;
             }
             lastTimePressed = Time.time;
         }
