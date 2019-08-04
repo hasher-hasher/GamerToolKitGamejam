@@ -77,18 +77,9 @@ public class Demo : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        // if (other.gameObject.tag == "Floor" && isJumping == true) {
-        //     this.isJumping = false;
-        //     print("-> " + isJumping);
-        //     sourceAudio.clip = audioClips[2];
-        //     sourceAudio.Play();
-        // }
-
         if (other.gameObject.tag == "Enemy") {
             print("Morreu otario");
             SceneManager.LoadScene("TEst", LoadSceneMode.Single);
-            sourceAudio.clip = audioClips[0];
-            sourceAudio.Play();
         }
     }
 
@@ -98,8 +89,17 @@ public class Demo : MonoBehaviour
             {
                 this.isJumping = false;
                 print("-> " + isJumping);
-                sourceAudio.clip = audioClips[2];
-                sourceAudio.Play();
+                // sourceAudio.clip = audioClips[2];
+                // sourceAudio.Play();
             }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Floor")
+        {
+            this.isJumping = true;
+            print("-> " + isJumping);
+        }
     }
 }
