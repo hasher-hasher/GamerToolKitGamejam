@@ -14,7 +14,6 @@ public class FloorManager : MonoBehaviour
         );
         if (other.gameObject.tag == "Player") {
             Instantiate(itemToSpawn, targetPosition, Quaternion.identity);
-            print("Tei");
         }
     }
 }

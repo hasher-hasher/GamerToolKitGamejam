@@ -37,7 +37,11 @@ public class Demo : MonoBehaviour
 
     public Text the_text;
 
+    public Text best_text;
+
     public GameObject deathText;
+    
+    public GameObject tutorialText;
 
     private bool canPlay;
 
@@ -50,9 +54,14 @@ public class Demo : MonoBehaviour
         lastTimePressed = 0;
         sourceAudio = GetComponent<AudioSource>();
         canPlay = true;
+        tutorialText.SetActive(true);
+        best_text.text = PlayerPrefs.GetString("Best");
     }
 
     private void FixedUpdate() {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+            tutorialText.SetActive(false);
+        }
         // Updating any pressed button if in game
         if (Input.GetKey(KeyCode.Alpha1))
         {
@@ -61,12 +70,17 @@ public class Demo : MonoBehaviour
                 int y = 0;
                 x = int.TryParse(the_text.text, out y);
                 the_text.text = (y + 1).ToString();
+                if (int.Parse(the_text.text) > int.Parse(best_text.text)) {
+                    best_text.text = the_text.text;
+                }
                 // Run
                 rb.velocity = new Vector2(moveForce, rb.velocity.y);
                 if (!isJumping)
                 {
                     anim.SetTrigger("Run");
                 }
+            } else if (Input.GetKeyDown(KeyCode.Alpha1)) {
+                SceneManager.LoadScene("TEst", LoadSceneMode.Single);
             }
         } else if (!isJumping)
         {
@@ -99,9 +113,10 @@ public class Demo : MonoBehaviour
         if (other.gameObject.tag == "Enemy") {
             print("Morreu otario");
             PlayerPrefs.SetString("Score", the_text.text);
+            PlayerPrefs.SetString("Best", best_text.text);
+            tutorialText.SetActive(false);
             deathText.SetActive(true);
             canPlay = false;
-            // SceneManager.LoadScene("TEst", LoadSceneMode.Single);
         }
     }
 
@@ -110,7 +125,6 @@ public class Demo : MonoBehaviour
             if (other.gameObject.tag == "Floor" && isJumping == true)
             {
                 this.isJumping = false;
-                print("-> " + isJumping);
             }
     }
 
@@ -119,7 +133,6 @@ public class Demo : MonoBehaviour
         if (other.gameObject.tag == "Floor")
         {
             this.isJumping = true;
-            print("-> " + isJumping);
         }
     }
 }
