@@ -81,13 +81,13 @@ public class Demo : MonoBehaviour
                 anim.SetTrigger("Jump");
             }
             lastTimePressed = Time.time;
-            
         }
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Enemy") {
             print("Morreu otario");
+            PlayerPrefs.SetString("Score", the_text.text);
             SceneManager.LoadScene("TEst", LoadSceneMode.Single);
         }
     }
