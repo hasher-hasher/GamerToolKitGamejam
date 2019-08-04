@@ -59,9 +59,6 @@ public class Demo : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            tutorialText.SetActive(false);
-        }
         // Updating any pressed button if in game
         if (Input.GetKey(KeyCode.Alpha1))
         {
@@ -79,6 +76,7 @@ public class Demo : MonoBehaviour
                 {
                     anim.SetTrigger("Run");
                 }
+                tutorialText.SetActive(false);
             } else if (Input.GetKeyDown(KeyCode.Alpha1)) {
                 SceneManager.LoadScene("TEst", LoadSceneMode.Single);
             }
@@ -112,6 +110,7 @@ public class Demo : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Enemy") {
             print("Morreu otario");
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             PlayerPrefs.SetString("Score", the_text.text);
             PlayerPrefs.SetString("Best", best_text.text);
             tutorialText.SetActive(false);
