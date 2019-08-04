@@ -212,7 +212,7 @@ RectTransform:
   m_Children:
   - {fileID: 1259373004}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -707,7 +707,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score: 000'
+  m_Text: 0
 --- !u!222 &1259373006
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5702,7 +5702,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1984032858
 GameObject:
@@ -5745,6 +5745,7 @@ MonoBehaviour:
   higherJumpTime: 0.3
   jumpForce: 15
   moveForce: 5
+  the_text: {fileID: 1259373005}
 --- !u!82 &1984032860
 AudioSource:
   m_ObjectHideFlags: 0

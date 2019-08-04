@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 // [RequireComponent(typeof(Rigidbody2D))]
@@ -33,6 +35,8 @@ public class Demo : MonoBehaviour
 
     private bool isJumping;
 
+    public Text the_text;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +51,10 @@ public class Demo : MonoBehaviour
         // Updating any pressed button if in game
         if (Input.GetKey(KeyCode.Keypad1))
         {
+            bool x = false;
+            int y = 0;
+            x = int.TryParse(the_text.text, out y);
+            the_text.text = (y + 1).ToString();
             // Run
             rb.velocity = new Vector2(moveForce, rb.velocity.y);
             if (!isJumping) {
@@ -73,6 +81,7 @@ public class Demo : MonoBehaviour
                 anim.SetTrigger("Jump");
             }
             lastTimePressed = Time.time;
+            
         }
     }
 
@@ -89,8 +98,6 @@ public class Demo : MonoBehaviour
             {
                 this.isJumping = false;
                 print("-> " + isJumping);
-                // sourceAudio.clip = audioClips[2];
-                // sourceAudio.Play();
             }
     }
 
