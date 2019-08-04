@@ -9,7 +9,7 @@ public class FloorManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         Vector2 targetPosition = new Vector2(
-            transform.position.x + (transform.parent.GetComponent<BoxCollider2D>().size.x),
+            transform.position.x + (transform.parent.GetComponent<BoxCollider2D>().size.x - 5f),
             transform.parent.parent.position.y
         );
         if (other.gameObject.tag == "Player") {

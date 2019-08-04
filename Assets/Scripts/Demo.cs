@@ -9,6 +9,9 @@ public class Demo : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator anim;
+    AudioSource sourceAudio;
+
+    public List<AudioClip> audioClips = new List<AudioClip>();
 
     
     [SerializeField]
@@ -37,6 +40,7 @@ public class Demo : MonoBehaviour
         anim = GetComponent<Animator>();
         jumpCoroutineRunning = false;
         lastTimePressed = 0;
+        sourceAudio = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate() {
@@ -63,6 +67,8 @@ public class Demo : MonoBehaviour
         {
             // Start time handler coroutine
             if (Time.time - lastTimePressed < higherJumpTime && !this.isJumping) {
+                sourceAudio.clip = audioClips[1];
+                sourceAudio.Play();
                 rb.velocity = Vector2.up * jumpForce; // Jump
                 anim.SetTrigger("Jump");
             }
@@ -71,23 +77,29 @@ public class Demo : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.tag == "Floor") {
-            this.isJumping = false;
-            print("-> " + isJumping);
-        }
+        // if (other.gameObject.tag == "Floor" && isJumping == true) {
+        //     this.isJumping = false;
+        //     print("-> " + isJumping);
+        //     sourceAudio.clip = audioClips[2];
+        //     sourceAudio.Play();
+        // }
 
         if (other.gameObject.tag == "Enemy") {
             print("Morreu otario");
             SceneManager.LoadScene("TEst", LoadSceneMode.Single);
+            sourceAudio.clip = audioClips[0];
+            sourceAudio.Play();
         }
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Floor")
-        {
-            this.isJumping = true;
-            print("-> " + isJumping);
-        }
+            if (other.gameObject.tag == "Floor" && isJumping == true)
+            {
+                this.isJumping = false;
+                print("-> " + isJumping);
+                sourceAudio.clip = audioClips[2];
+                sourceAudio.Play();
+            }
     }
 }
