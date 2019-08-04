@@ -37,6 +37,10 @@ public class Demo : MonoBehaviour
 
     public Text the_text;
 
+    public GameObject deathText;
+
+    private bool canPlay;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,11 +49,12 @@ public class Demo : MonoBehaviour
         jumpCoroutineRunning = false;
         lastTimePressed = 0;
         sourceAudio = GetComponent<AudioSource>();
+        canPlay = true;
     }
 
     private void FixedUpdate() {
         // Updating any pressed button if in game
-        if (Input.GetKey(KeyCode.Keypad1))
+        if (Input.GetKey(KeyCode.Keypad1) && canPlay)
         {
             bool x = false;
             int y = 0;
@@ -71,7 +76,7 @@ public class Demo : MonoBehaviour
     {
         // Check if the player started to press the button with
         // the intention to jump
-        if (Input.GetKeyDown(KeyCode.Keypad1))
+        if (Input.GetKeyDown(KeyCode.Keypad1) && canPlay)
         {
             // Start time handler coroutine
             if (Time.time - lastTimePressed < higherJumpTime && !this.isJumping) {
@@ -88,7 +93,9 @@ public class Demo : MonoBehaviour
         if (other.gameObject.tag == "Enemy") {
             print("Morreu otario");
             PlayerPrefs.SetString("Score", the_text.text);
-            SceneManager.LoadScene("TEst", LoadSceneMode.Single);
+            deathText.SetActive(true);
+            canPlay = false;
+            // SceneManager.LoadScene("TEst", LoadSceneMode.Single);
         }
     }
 

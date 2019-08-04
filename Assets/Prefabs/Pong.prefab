@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7443937996461993669}
   - component: {fileID: 7443937996461993668}
   - component: {fileID: 7443937996461993691}
+  - component: {fileID: 9157851207650426932}
+  - component: {fileID: 326174181287695516}
   m_Layer: 10
   m_Name: Pong
   m_TagString: Enemy
@@ -70,7 +72,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &7443937996461993668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,3 +135,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &9157851207650426932
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7443937996461993664}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c833d660b7150a0439f63d868029bb0b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &326174181287695516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7443937996461993664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b3d03ee40e6e9438716a33ad5f5182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
