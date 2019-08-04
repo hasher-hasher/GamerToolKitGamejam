@@ -54,16 +54,19 @@ public class Demo : MonoBehaviour
 
     private void FixedUpdate() {
         // Updating any pressed button if in game
-        if (Input.GetKey(KeyCode.Keypad1) && canPlay)
+        if (Input.GetKey(KeyCode.Alpha1))
         {
-            bool x = false;
-            int y = 0;
-            x = int.TryParse(the_text.text, out y);
-            the_text.text = (y + 1).ToString();
-            // Run
-            rb.velocity = new Vector2(moveForce, rb.velocity.y);
-            if (!isJumping) {
-                anim.SetTrigger("Run");
+            if (canPlay) {
+                bool x = false;
+                int y = 0;
+                x = int.TryParse(the_text.text, out y);
+                the_text.text = (y + 1).ToString();
+                // Run
+                rb.velocity = new Vector2(moveForce, rb.velocity.y);
+                if (!isJumping)
+                {
+                    anim.SetTrigger("Run");
+                }
             }
         } else if (!isJumping)
         {
@@ -76,16 +79,19 @@ public class Demo : MonoBehaviour
     {
         // Check if the player started to press the button with
         // the intention to jump
-        if (Input.GetKeyDown(KeyCode.Keypad1) && canPlay)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            // Start time handler coroutine
-            if (Time.time - lastTimePressed < higherJumpTime && !this.isJumping) {
-                sourceAudio.clip = audioClips[1];
-                sourceAudio.Play();
-                rb.velocity = Vector2.up * jumpForce; // Jump
-                anim.SetTrigger("Jump");
+            if (canPlay) {
+                // Start time handler coroutine
+                if (Time.time - lastTimePressed < higherJumpTime && !this.isJumping)
+                {
+                    sourceAudio.clip = audioClips[1];
+                    sourceAudio.Play();
+                    rb.velocity = Vector2.up * jumpForce; // Jump
+                    anim.SetTrigger("Jump");
+                }
+                lastTimePressed = Time.time;
             }
-            lastTimePressed = Time.time;
         }
     }
 
